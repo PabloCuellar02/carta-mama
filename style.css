@@ -306,3 +306,15 @@ h1 {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
+#aviso {
+    font-family: "Marck Script", serif;
+    font-size: 1.2em;
+    animation: parpadeo 2s infinite;
+}
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
