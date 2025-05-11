@@ -30,36 +30,3 @@ document.addEventListener("click", (e) => {
     } 
 })
 
-
-const musica = document.getElementById('musicaFondo');
-const btnSonido = document.getElementById('btnSonido');
-let musicaIniciada = false;
-
-// Función para iniciar música
-const iniciarMusica = () => {
-    if (!musicaIniciada) {
-        musica.play()
-            .then(() => {
-                musicaIniciada = true;
-                document.getElementById('aviso').remove();
-            })
-            .catch(error => {
-                console.log('Error al reproducir:', error);
-            });
-    }
-};
-
-// Eventos para móviles y desktop
-document.addEventListener('click', iniciarMusica);
-document.addEventListener('touchstart', iniciarMusica);
-
-// Control del botón de mute
-btnSonido.addEventListener('click', (e) => {
-    e.stopPropagation();
-    musica.muted = !musica.muted;
-    btnSonido.textContent = musica.muted ? '🔇' : '🔊';
-});
-
-// Configuración inicial
-musica.muted = false;
-musica.loop = true;

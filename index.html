@@ -52,9 +52,23 @@
         </div>
     </div>
     <script src="script_v2.js"></script>
-    <audio id="musicaFondo" loop autoplay>
+    <audio id="musicaFondo" autoplay loop>
     <source src="musica/tu_ultima_cancion.mp3" type="audio/mpeg">
     </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('musicaFondo');
+            audio.play().catch(() => {
+                // Handle autoplay restrictions
+                const aviso = document.getElementById('aviso');
+                aviso.style.display = 'block';
+                document.body.addEventListener('click', () => {
+                    audio.play();
+                    aviso.style.display = 'none';
+                }, { once: true });
+            });
+        });
+    </script>
     <button id="btnSonido">🔇</button>
 </body>
 </html>
